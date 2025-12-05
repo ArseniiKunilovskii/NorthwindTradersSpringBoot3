@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.pluralsight</groupId>
-	<artifactId>NorthwindTradersSpringBoot2</artifactId>
+	<artifactId>NorthwindTradersSpringBoot3</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>NorthwindTradersSpringBoot2</name>
+	<name>NorthwindTradersSpringBoot3</name>
 	<description>Demo project for Spring Boot</description>
 	<url/>
 	<licenses>
