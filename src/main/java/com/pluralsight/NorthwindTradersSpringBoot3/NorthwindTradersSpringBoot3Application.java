@@ -13,7 +13,7 @@ import java.util.Scanner;
 public class NorthwindTradersSpringBoot3Application {
 
     public static void main(String[] args) {
-        ApplicationContext context = SpringApplication.run(NorthwindTradersSpringBoot2Application.class, args);
+        ApplicationContext context = SpringApplication.run(NorthwindTradersSpringBoot3Application.class, args);
         ProductService productService = context.getBean(ProductService.class);
 
         Scanner scanner = new Scanner(System.in);
