@@ -24,7 +24,7 @@ public class NorthwindTradersCommandLine implements CommandLineRunner {
         do {
             System.out.println("========== Northwind Traders ==========");
             System.out.println("1. List Products");
-            System.out.println("2. Add Product");
+            System.out.println("3. Add Product");
             System.out.println("3. Update Product");
             System.out.println("4. Delete Product");
             System.out.println("5. Search Product");
@@ -60,16 +60,16 @@ public class NorthwindTradersCommandLine implements CommandLineRunner {
         scanner.close();
     }
 
-    private static void listProducts(com.pluralsight.NorthwindTradersSpringBoot2.services.ProductService productService) {
+    private static void listProducts(com.pluralsight.NorthwindTradersSpringBoot3.services.ProductService productService) {
         System.out.println("========== List of Products ==========");
-        List<com.pluralsight.NorthwindTradersSpringBoot2.models.Product> products = productService.getAllProducts();
-        for (com.pluralsight.NorthwindTradersSpringBoot2.models.Product product : products) {
+        List<com.pluralsight.NorthwindTradersSpringBoot3.models.Product> products = productService.getAllProducts();
+        for (com.pluralsight.NorthwindTradersSpringBoot3.models.Product product : products) {
             System.out.println(product);
         }
         System.out.println();
     }
 
-    private static void addProduct(Scanner scanner, com.pluralsight.NorthwindTradersSpringBoot2.services.ProductService productService) {
+    private static void addProduct(Scanner scanner, com.pluralsight.NorthwindTradersSpringBoot3.services.ProductService productService) {
         System.out.print("Enter product name: ");
         String name = scanner.nextLine();
         System.out.print("Enter product category ID: ");
@@ -78,20 +78,20 @@ public class NorthwindTradersCommandLine implements CommandLineRunner {
         System.out.print("Enter product price: ");
         double price = scanner.nextDouble();
 
-        com.pluralsight.NorthwindTradersSpringBoot2.models.Product product = new com.pluralsight.NorthwindTradersSpringBoot2.models.Product(name, categoryId, price);
-        com.pluralsight.NorthwindTradersSpringBoot2.models.Product newProduct = productService.addProduct(product);
+        com.pluralsight.NorthwindTradersSpringBoot3.models.Product product = new com.pluralsight.NorthwindTradersSpringBoot3.models.Product(name, categoryId, price);
+        com.pluralsight.NorthwindTradersSpringBoot3.models.Product newProduct = productService.addProduct(product);
 
         System.out.println("Product added successfully.\n");
         System.out.println(newProduct);
         System.out.println();
     }
 
-    private static void updateProduct(Scanner scanner, com.pluralsight.NorthwindTradersSpringBoot2.services.ProductService productService) {
+    private static void updateProduct(Scanner scanner, com.pluralsight.NorthwindTradersSpringBoot3.services.ProductService productService) {
         System.out.print("Enter the product ID to update: ");
         int productId = scanner.nextInt();
         scanner.nextLine(); // Consume the newline character
 
-        com.pluralsight.NorthwindTradersSpringBoot2.models.Product existingProduct = productService.getProductById(productId);
+        com.pluralsight.NorthwindTradersSpringBoot3.models.Product existingProduct = productService.getProductById(productId);
         if (existingProduct == null) {
             System.out.println("Product not found.\n");
             return;
@@ -105,18 +105,18 @@ public class NorthwindTradersCommandLine implements CommandLineRunner {
         System.out.print("Enter new product price: ");
         double price = scanner.nextDouble();
 
-        com.pluralsight.NorthwindTradersSpringBoot2.models.Product updatedProduct = new com.pluralsight.NorthwindTradersSpringBoot2.models.Product(productId, name, categoryId, price);
+        com.pluralsight.NorthwindTradersSpringBoot3.models.Product updatedProduct = new com.pluralsight.NorthwindTradersSpringBoot3.models.Product(productId, name, categoryId, price);
         productService.updateProduct(productId, updatedProduct);
 
         System.out.println("Product updated successfully.\n");
     }
 
-    private static void deleteProduct(Scanner scanner, com.pluralsight.NorthwindTradersSpringBoot2.services.ProductService productService) {
+    private static void deleteProduct(Scanner scanner, com.pluralsight.NorthwindTradersSpringBoot3.services.ProductService productService) {
         System.out.print("Enter the product ID to delete: ");
         int productId = scanner.nextInt();
         scanner.nextLine(); // Consume the newline character
 
-        com.pluralsight.NorthwindTradersSpringBoot2.models.Product existingProduct = productService.getProductById(productId);
+        com.pluralsight.NorthwindTradersSpringBoot3.models.Product existingProduct = productService.getProductById(productId);
         if (existingProduct == null) {
             System.out.println("Product not found.\n");
             return;
@@ -127,12 +127,12 @@ public class NorthwindTradersCommandLine implements CommandLineRunner {
         System.out.println("Product deleted successfully.\n");
     }
 
-    private static void searchProduct(Scanner scanner, com.pluralsight.NorthwindTradersSpringBoot2.services.ProductService productService) {
+    private static void searchProduct(Scanner scanner, com.pluralsight.NorthwindTradersSpringBoot3.services.ProductService productService) {
         System.out.print("Enter the product ID to search: ");
         int productId = scanner.nextInt();
         scanner.nextLine(); // Consume the newline character
 
-        com.pluralsight.NorthwindTradersSpringBoot2.models.Product product = productService.getProductById(productId);
+        com.pluralsight.NorthwindTradersSpringBoot3.models.Product product = productService.getProductById(productId);
         if (product == null) {
             System.out.println("Product not found.\n");
         } else {
