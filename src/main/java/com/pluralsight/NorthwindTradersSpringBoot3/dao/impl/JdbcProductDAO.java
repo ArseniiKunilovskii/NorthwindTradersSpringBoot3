@@ -26,7 +26,7 @@ public class JdbcProductDAO implements IProductDao {
         try (Connection connection = dataSource.getConnection()) {
             // SQL statement to create a Products table if it does not exist.
             String createTableQuery = "CREATE TABLE IF NOT EXISTS Products (" +
-                    "Product_id INT PRIMARY KEY AUTO_INCREMENT," +
+                    "ProductId INT PRIMARY KEY AUTO_INCREMENT," +
                     "amount DECIMAL(10, 2) NOT NULL," +
                     "vendor VARCHAR(255) NOT NULL" +
                     ")";
@@ -124,7 +124,7 @@ public class JdbcProductDAO implements IProductDao {
     public Product getById(int productId) {
         // This method retrieves a specific Product by its ID.
         Product product = null;
-        String getByIdQuery = "SELECT * FROM Products WHERE Product_id = ?";
+        String getByIdQuery = "SELECT * FROM Products WHERE ProductId = ?";
 
         try (Connection connection = dataSource.getConnection();
              PreparedStatement selectStatement = connection.prepareStatement(getByIdQuery)) {
@@ -149,7 +149,7 @@ public class JdbcProductDAO implements IProductDao {
     @Override
     public void update(int ProductId, Product product) {
         // This method updates an existing Product in the database.
-        String updateDataQuery = "UPDATE Products SET ProductName = ?, categoryId = ?, UnitPrice = ? WHERE Product_id = ?";
+        String updateDataQuery = "UPDATE Products SET ProductName = ?, categoryId = ?, UnitPrice = ? WHERE ProductId = ?";
         try (Connection connection = dataSource.getConnection();
              PreparedStatement updateStatement = connection.prepareStatement(updateDataQuery)) {
             // Setting parameters for the update query.
