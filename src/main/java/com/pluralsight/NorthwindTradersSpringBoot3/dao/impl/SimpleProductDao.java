@@ -1,6 +1,7 @@
 package com.pluralsight.NorthwindTradersSpringBoot3.dao.impl;
 
 
+
 import com.pluralsight.NorthwindTradersSpringBoot3.dao.interfaces.IProductDao;
 import com.pluralsight.NorthwindTradersSpringBoot3.models.Product;
 import org.springframework.stereotype.Component;
@@ -10,7 +11,7 @@ import java.util.List;
 
 @Component
 public class SimpleProductDao implements IProductDao {
-    private final List<Product> products;
+    private List<Product> products;
 
     public SimpleProductDao() {
         this.products = new ArrayList<>();
